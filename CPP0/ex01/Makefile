@@ -4,24 +4,24 @@ OBJDIR	=	obj/
 
 MAIN	=	Main
 UTIL	=	Contact		\
-			Phonebook	\
+			PhoneBook	\
 
-SOURCE	= $(MAIN)
+SOURCE	= $(MAIN) $(UTIL)
 
 SRC	= $(addsuffix .cpp, $(SOURCE))
 OBJ	= $(addprefix $(OBJDIR), $(addsuffix .o, $(SOURCE)))
 
-CC		= cc
-RMF	= rm -f
+CC		= c++
+RMF		= rm -f
 RMRF	= rm -rf
 RMDIR	= rmdir
-CFLAGS	= -Wall -Wextra -Werror
+CFLAGS	= -Wall -Wextra -Werror -std=c++98
 
-$(OBJDIR)%.o: $(SRCDIR)%.c
-	mkdir -p $(@D)
+$(OBJDIR)%.o: %.cpp
+	mkdir -p $(OBJDIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 
-$(NAME): libmake $(OBJ)
+$(NAME): $(OBJ)
 	$(CC) $(OBJ) $(CFLAGS) -o $(NAME)
 
 clean:
@@ -30,7 +30,6 @@ clean:
 
 fclean: clean
 	$(RMF) $(NAME)
-	make fclean -C ./includes/libft
 
 re: fclean all
 
