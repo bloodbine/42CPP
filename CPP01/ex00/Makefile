@@ -1,10 +1,11 @@
-NAME	=	Phonebook
+NAME	=	BraiiiiiiinnnzzzZ
 
 OBJDIR	=	obj/
 
-MAIN	=	Main
-UTIL	=	Contact		\
-			PhoneBook	\
+MAIN	=	main
+UTIL	=	Zombie		\
+			newZombie	\
+			randomChump
 
 SOURCE	= $(MAIN) $(UTIL)
 
