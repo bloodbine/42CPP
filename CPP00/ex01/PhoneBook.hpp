@@ -6,7 +6,7 @@
 /*   By: gpasztor <gpasztor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/12 12:11:06 by gpasztor          #+#    #+#             */
-/*   Updated: 2023/09/26 17:06:48 by gpasztor         ###   ########.fr       */
+/*   Updated: 2023/09/27 12:20:24 by gpasztor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 class PhoneBook
 {
-
-	public:
+	private:
 		Contact 	_contact[8];
 		int			_index;
 
+	public:
 		PhoneBook(void);
 		~PhoneBook(void);
 

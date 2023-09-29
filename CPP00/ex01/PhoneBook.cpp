@@ -6,7 +6,7 @@
 /*   By: gpasztor <gpasztor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 16:49:12 by gpasztor          #+#    #+#             */
-/*   Updated: 2023/09/26 19:32:55 by gpasztor         ###   ########.fr       */
+/*   Updated: 2023/09/27 12:24:28 by gpasztor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,18 +61,32 @@ void	PhoneBook::AddNewContact(void)
 		this->_index = 0;
 	}
 	input = RecursiveRead("First Name: ");
-	this->_contact[this->_index].SetFirstName(input);
+	if (input.length() > 10)
+		this->_contact[this->_index].SetFirstName(input.substr(0, 9) + ".");
+	else
+		this->_contact[this->_index].SetFirstName(input);
 	input = RecursiveRead("Last Name: ");
-	this->_contact[this->_index].SetLastName(input);
+	if (input.length() > 10)
+		this->_contact[this->_index].SetLastName(input.substr(0, 9) + ".");
+	else
+		this->_contact[this->_index].SetLastName(input);
 	input = RecursiveRead("Nickname: ");
-	this->_contact[this->_index].SetNickname(input);
+	if (input.length() > 10)
+		this->_contact[this->_index].SetNickname(input.substr(0, 9) + ".");
+	else
+		this->_contact[this->_index].SetNickname(input);
 	input = RecursiveRead("Phone Number: ");
-	this->_contact[this->_index].SetPhoneNumber(input);
+	if (input.length() > 10)
+		this->_contact[this->_index].SetPhoneNumber(input.substr(0, 9) + ".");
+	else
+		this->_contact[this->_index].SetPhoneNumber(input);
 	input = RecursiveRead("Darkest Secret: ");
-	this->_contact[this->_index].SetDarkestSecret(input);
+	if (input.length() > 10)
+		this->_contact[this->_index].SetDarkestSecret(input.substr(0, 9) + ".");
+	else
+		this->_contact[this->_index].SetDarkestSecret(input);
 	this->_index++;
 };
-
 
 void	PhoneBook::SearchContact(void)
 {
@@ -88,6 +102,7 @@ void	PhoneBook::SearchContact(void)
 	index = std::stoi(input);
 	if (index <= 8 && index >= 1)
 	{
+		if ()
 		std::cout << "|" << std::setw(10) << index;
 		std::cout << "|" << std::setw(10) << this->_contact[index - 1].GetFirstName();
 		std::cout << "|" << std::setw(10) << this->_contact[index - 1].GetLastName();
