@@ -1,26 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gpasztor <gpasztor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/29 10:55:48 by gpasztor          #+#    #+#             */
-/*   Updated: 2023/09/29 14:40:30 by gpasztor         ###   ########.fr       */
+/*   Created: 2023/09/29 10:20:59 by gpasztor          #+#    #+#             */
+/*   Updated: 2023/09/29 15:19:05 by gpasztor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef ZOMBIE_H
+# define ZOMBIE_H
 
-int	main(void)
+#include <cstring>
+#include <iostream>
+
+class Zombie
 {
-	Zombie Fred = Zombie("Fred");
-	Fred.announce();
-	randomChump("Frederick");
-	Zombie *Fredericka = newZombie("Fredericka");
-	Fredericka->announce();
-	delete Fredericka;
-	return (0);
+	private:
+		std::string _name;
+
+	public:
+		Zombie();
+		Zombie(std::string name);
+		~Zombie(void);
+
+		void		announce(void);
+		void		set_name(std::string name);
 };
 
-	// return (system("leaks BraiiiiiiinnnzzzZ"));
+	Zombie*	zombieHorde(int N, std::string name);
+
+#endif

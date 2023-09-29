@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gpasztor <gpasztor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/29 10:55:48 by gpasztor          #+#    #+#             */
-/*   Updated: 2023/09/29 14:40:30 by gpasztor         ###   ########.fr       */
+/*   Created: 2023/09/29 14:55:23 by gpasztor          #+#    #+#             */
+/*   Updated: 2023/09/29 15:29:22 by gpasztor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,8 @@
 
 int	main(void)
 {
-	Zombie Fred = Zombie("Fred");
-	Fred.announce();
-	randomChump("Frederick");
-	Zombie *Fredericka = newZombie("Fredericka");
-	Fredericka->announce();
-	delete Fredericka;
-	return (0);
+	Zombie *Horde = zombieHorde(50, "Fred");
+	for (int i = 0; i < 50; i++)
+		Horde[i].announce();
+	delete[] Horde;
 };
-
-	// return (system("leaks BraiiiiiiinnnzzzZ"));

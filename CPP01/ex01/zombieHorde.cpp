@@ -1,26 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ZombieHorde.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gpasztor <gpasztor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/29 10:55:48 by gpasztor          #+#    #+#             */
-/*   Updated: 2023/09/29 14:40:30 by gpasztor         ###   ########.fr       */
+/*   Created: 2023/09/29 14:46:50 by gpasztor          #+#    #+#             */
+/*   Updated: 2023/09/29 15:20:57 by gpasztor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
+#include <string>
 
-int	main(void)
+Zombie* zombieHorde(int n, std::string name)
 {
-	Zombie Fred = Zombie("Fred");
-	Fred.announce();
-	randomChump("Frederick");
-	Zombie *Fredericka = newZombie("Fredericka");
-	Fredericka->announce();
-	delete Fredericka;
-	return (0);
+	Zombie* Horde = new Zombie[n];
+	for (int i = 0; i < n; i++)
+		Horde[i].set_name((name + std::to_string(i)));
+	return (Horde);
 };
-
-	// return (system("leaks BraiiiiiiinnnzzzZ"));
