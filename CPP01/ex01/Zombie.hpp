@@ -6,14 +6,13 @@
 /*   By: gpasztor <gpasztor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 10:20:59 by gpasztor          #+#    #+#             */
-/*   Updated: 2023/09/29 15:19:05 by gpasztor         ###   ########.fr       */
+/*   Updated: 2023/09/29 15:46:05 by gpasztor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ZOMBIE_H
 # define ZOMBIE_H
 
-#include <cstring>
 #include <iostream>
 
 class Zombie
