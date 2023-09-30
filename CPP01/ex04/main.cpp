@@ -6,7 +6,7 @@
 /*   By: gpasztor <gpasztor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/30 12:22:47 by gpasztor          #+#    #+#             */
-/*   Updated: 2023/09/30 15:18:23 by gpasztor         ###   ########.fr       */
+/*   Updated: 2023/09/30 15:25:05 by gpasztor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,5 +76,5 @@ int	main(int argc, char **argv)
 
 	input.close();
 	output.close();
-	return (system("leaks Sed"));
+	return (0);
 };
