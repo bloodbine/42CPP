@@ -6,7 +6,7 @@
 /*   By: gpasztor <gpasztor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/30 12:22:47 by gpasztor          #+#    #+#             */
-/*   Updated: 2023/09/30 14:23:07 by gpasztor         ###   ########.fr       */
+/*   Updated: 2023/09/30 15:18:23 by gpasztor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,14 +45,14 @@ int	main(int argc, char **argv)
 	replacewith = argv[3];
 
 	input.open(filename, std::ios::in);
-	if (input.bad() == true)
+	if (!input)
 	{
 		std::cout << "Failed to open input file" << std::endl;
 		return (1);
 	}
 
 	output.open((filename + ".replace"), std::ios::out | std::ios::trunc);
-	if (input.bad() == true)
+	if (!output)
 	{
 		std::cout << "Failed to open output file" << std::endl;
 		return (1);
@@ -61,12 +61,20 @@ int	main(int argc, char **argv)
 	while (input.eof() == false)
 	{
 		std::getline(input, line);
+		if (input.bad() == true)
+		{
+			std::cout << "An error occured while reading from the input file" << std::endl;
+			return (1);
+		}
 		std::string& stringREF = line;
 		while (string_replace(stringREF, toreplace, replacewith) == true);
-		output << line << std::endl;
+		if (input.eof() == false)
+			output << line << std::endl;
+		else
+			output << line;
 	}
 
 	input.close();
 	output.close();
-	return (0);
+	return (system("leaks Sed"));
 };
