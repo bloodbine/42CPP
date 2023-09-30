@@ -6,7 +6,7 @@
 /*   By: gpasztor <gpasztor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/30 12:22:47 by gpasztor          #+#    #+#             */
-/*   Updated: 2023/09/30 15:25:05 by gpasztor         ###   ########.fr       */
+/*   Updated: 2023/09/30 17:12:13 by gpasztor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	main(int argc, char **argv)
 
 	if (argc != 4 || !argv[1] || !argv[2] || !argv[3])
 	{
-		std::cout << "Invalid arguments. Example: ./Sed 'testfile.txt' 'toreplace' 'replacewith'" << std::endl;
+		std::cerr << "Invalid arguments. Example: ./Sed 'testfile.txt' 'toreplace' 'replacewith'" << std::endl;
 		return (1);
 	}
 
@@ -47,14 +47,14 @@ int	main(int argc, char **argv)
 	input.open(filename, std::ios::in);
 	if (!input)
 	{
-		std::cout << "Failed to open input file" << std::endl;
+		std::cerr << "Failed to open input file" << std::endl;
 		return (1);
 	}
 
 	output.open((filename + ".replace"), std::ios::out | std::ios::trunc);
 	if (!output)
 	{
-		std::cout << "Failed to open output file" << std::endl;
+		std::cerr << "Failed to open output file" << std::endl;
 		return (1);
 	}
 
@@ -63,7 +63,7 @@ int	main(int argc, char **argv)
 		std::getline(input, line);
 		if (input.bad() == true)
 		{
-			std::cout << "An error occured while reading from the input file" << std::endl;
+			std::cerr << "An error occured while reading from the input file" << std::endl;
 			return (1);
 		}
 		std::string& stringREF = line;
