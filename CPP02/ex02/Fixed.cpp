@@ -6,7 +6,7 @@
 /*   By: gpasztor <gpasztor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/01 11:24:17 by gpasztor          #+#    #+#             */
-/*   Updated: 2023/10/02 13:56:08 by gpasztor         ###   ########.fr       */
+/*   Updated: 2023/10/02 14:40:20 by gpasztor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ Fixed &Fixed::operator++()
 Fixed Fixed::operator++(int)
 {
 	Fixed	temp(*this);
-	(*this)++;
+	++(*this);
 	return	(temp);
 	
 };
@@ -112,7 +112,7 @@ Fixed &Fixed::operator--()
 Fixed Fixed::operator--(int)
 {
 	Fixed	temp(*this);
-	(*this)--;
+	--(*this);
 	return	(temp);
 	
 };
