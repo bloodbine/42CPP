@@ -6,7 +6,7 @@
 /*   By: gpasztor <gpasztor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 15:33:45 by gpasztor          #+#    #+#             */
-/*   Updated: 2023/10/03 16:10:17 by gpasztor         ###   ########.fr       */
+/*   Updated: 2023/10/04 12:44:20 by gpasztor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,20 @@ ScavTrap& ScavTrap::operator=(const ScavTrap &obj)
 		this->setAP(obj.getAP());
 	}
 	return (*this);
+};
+
+void	ScavTrap::attack(const std::string& target)
+{
+	if (this->getHP() > 0 && this->getEP() > 0)
+	{
+		std::cout << "ScavTrap " << this->getName() << " attacks " << target \
+		<< ", causing " << this->getAP() << " points of damage" << std::endl;
+		this->setEP(this->getEP() - 1);
+	}
+	else if (this->getEP() > 0)
+		std::cout << "ScavTrap " << _name << " is out of energy and cannot attack anyone" << std::endl;
+	else
+		std::cout << "ScavTrap " << _name << " is dead and cannot attack anyone" << std::endl;
 };
 
 void	ScavTrap::guardGate(void)
