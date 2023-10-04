@@ -6,20 +6,25 @@
 /*   By: gpasztor <gpasztor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 11:53:41 by gpasztor          #+#    #+#             */
-/*   Updated: 2023/10/03 16:30:50 by gpasztor         ###   ########.fr       */
+/*   Updated: 2023/10/04 16:11:36 by gpasztor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
+ClapTrap::ClapTrap(): _name("DefTrap"), _hit_points(10), _energy_points(10), _attack_damage(0)
+{
+	std::cout << "ClapTrap unit " << this->getName() << " has been constructed" << std::endl;
+};
+
 ClapTrap::ClapTrap(std::string name): _name(name), _hit_points(10), _energy_points(10), _attack_damage(0)
 {
-	std::cout << "ClapTrap unit " << _name << " has been constructed" << std::endl;
+	std::cout << "ClapTrap unit " << this->getName() << " has been constructed" << std::endl;
 };
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << "ClapTrap unit " << _name << " has been destructed" << std::endl;
+	std::cout << "ClapTrap unit " << this->getName() << " has been destructed" << std::endl;
 };
 
 ClapTrap::ClapTrap(const ClapTrap &obj)
@@ -45,9 +50,9 @@ void	ClapTrap::attack(const std::string& target)
 		this->setEP(this->getEP() - 1);
 	}
 	else if (this->getEP() > 0)
-		std::cout << "ClapTrap" << _name << " is out of energy and cannot attack anyone" << std::endl;
+		std::cout << "ClapTrap" << this->getName() << " is out of energy and cannot attack anyone" << std::endl;
 	else
-		std::cout << "ClapTrap" << _name << " is dead and cannot attack anyone" << std::endl;
+		std::cout << "ClapTrap" << this->getName() << " is dead and cannot attack anyone" << std::endl;
 };
 
 void	ClapTrap::takeDamage(unsigned int amount)

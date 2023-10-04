@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gpasztor <gpasztor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/03 15:33:48 by gpasztor          #+#    #+#             */
-/*   Updated: 2023/10/04 14:47:40 by gpasztor         ###   ########.fr       */
+/*   Created: 2023/10/03 15:01:10 by gpasztor          #+#    #+#             */
+/*   Updated: 2023/10/03 16:39:00 by gpasztor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRAGTRAP_HPP
-# define FRAGTRAP_HPP
+#include "FragTrap.hpp"
 
-#include "ClapTrap.hpp"
-
-class FragTrap: public ClapTrap
+int	main(void)
 {
-	public:
-		FragTrap();
-		FragTrap(std::string name);
-		~FragTrap();
-		FragTrap(const FragTrap &obj);
-		FragTrap &operator=(const FragTrap &obj);
+	FragTrap	Fraggie("Fraggie");
 
-		void	attack(const std::string& target);
-		void	highFivesGuys(void);
+	Fraggie.attack("Random raider");
+	Fraggie.takeDamage(5);
+	Fraggie.beRepaired(5);
+	Fraggie.takeDamage(10);
+	Fraggie.highFivesGuys();
+	Fraggie.takeDamage(200);
 };
-
-#endif

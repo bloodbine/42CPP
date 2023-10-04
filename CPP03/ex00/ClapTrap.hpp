@@ -6,7 +6,7 @@
 /*   By: gpasztor <gpasztor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 11:39:33 by gpasztor          #+#    #+#             */
-/*   Updated: 2023/10/03 12:56:30 by gpasztor         ###   ########.fr       */
+/*   Updated: 2023/10/04 15:39:50 by gpasztor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ class ClapTrap
 
 	public:
 		//OCF
+		ClapTrap();
 		ClapTrap(std::string name);
 		~ClapTrap();
 		ClapTrap(const ClapTrap &obj);

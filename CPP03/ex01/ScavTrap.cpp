@@ -6,18 +6,26 @@
 /*   By: gpasztor <gpasztor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 15:33:45 by gpasztor          #+#    #+#             */
-/*   Updated: 2023/10/04 12:44:20 by gpasztor         ###   ########.fr       */
+/*   Updated: 2023/10/04 16:11:50 by gpasztor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap(std::string name): ClapTrap(name)
+ScavTrap::ScavTrap(): ClapTrap()
 {
-	std::cout << "ScavTrap unit " << this->getName() << " has been constructed" << std::endl;
 	this->setHP(100);
 	this->setEP(50);
 	this->setAP(20);
+	std::cout << "ScavTrap unit " << this->getName() << " has been constructed" << std::endl;
+};
+
+ScavTrap::ScavTrap(std::string name): ClapTrap(name)
+{
+	this->setHP(100);
+	this->setEP(50);
+	this->setAP(20);
+	std::cout << "ScavTrap unit " << this->getName() << " has been constructed" << std::endl;
 };
 
 ScavTrap::~ScavTrap()
@@ -52,9 +60,9 @@ void	ScavTrap::attack(const std::string& target)
 		this->setEP(this->getEP() - 1);
 	}
 	else if (this->getEP() > 0)
-		std::cout << "ScavTrap " << _name << " is out of energy and cannot attack anyone" << std::endl;
+		std::cout << "ScavTrap " << this->getName() << " is out of energy and cannot attack anyone" << std::endl;
 	else
-		std::cout << "ScavTrap " << _name << " is dead and cannot attack anyone" << std::endl;
+		std::cout << "ScavTrap " << this->getName() << " is dead and cannot attack anyone" << std::endl;
 };
 
 void	ScavTrap::guardGate(void)

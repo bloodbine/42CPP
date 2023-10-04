@@ -6,7 +6,7 @@
 /*   By: gpasztor <gpasztor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 15:33:45 by gpasztor          #+#    #+#             */
-/*   Updated: 2023/10/04 16:11:20 by gpasztor         ###   ########.fr       */
+/*   Updated: 2023/10/04 15:27:35 by gpasztor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,9 @@ void	ScavTrap::attack(const std::string& target)
 		this->setEP(this->getEP() - 1);
 	}
 	else if (this->getEP() > 0)
-		std::cout << "ScavTrap " << this->getName() << " is out of energy and cannot attack anyone" << std::endl;
+		std::cout << "ScavTrap " << _name << " is out of energy and cannot attack anyone" << std::endl;
 	else
-		std::cout << "ScavTrap " << this->getName() << " is dead and cannot attack anyone" << std::endl;
+		std::cout << "ScavTrap " << _name << " is dead and cannot attack anyone" << std::endl;
 };
 
 void	ScavTrap::guardGate(void)

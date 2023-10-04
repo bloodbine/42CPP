@@ -6,7 +6,7 @@
 /*   By: gpasztor <gpasztor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 15:33:48 by gpasztor          #+#    #+#             */
-/*   Updated: 2023/10/04 12:44:24 by gpasztor         ###   ########.fr       */
+/*   Updated: 2023/10/04 14:49:17 by gpasztor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 class ScavTrap: public ClapTrap
 {
 	public:
+		ScavTrap();
 		ScavTrap(std::string name);
 		~ScavTrap();
 		ScavTrap(const ScavTrap &obj);
