@@ -1,10 +1,12 @@
-NAME	=	FragTrap
+NAME	=	DiamondTrap
 
 OBJDIR	=	obj/
 
 MAIN	=	main
 UTIL	=	ClapTrap \
-			FragTrap
+			FragTrap \
+			ScavTrap \
+			DiamondTrap
 
 SOURCE	= $(MAIN) $(UTIL)
 
