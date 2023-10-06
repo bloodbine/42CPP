@@ -6,7 +6,7 @@
 /*   By: gpasztor <gpasztor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 11:39:33 by gpasztor          #+#    #+#             */
-/*   Updated: 2023/10/04 14:47:22 by gpasztor         ###   ########.fr       */
+/*   Updated: 2023/10/06 10:55:03 by gpasztor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,6 @@ class ClapTrap
 		void	attack(const std::string& target);
 		void	takeDamage(unsigned int amount);
 		void	beRepaired(unsigned int amount);
-		//Setters
-		void	setName(std::string name);
-		void	setHP(int HP);
-		void	setEP(int EP);
-		void	setAP(int AP);
 		//Getters
 		std::string	getName(void) const;
 		int		getHP(void) const;

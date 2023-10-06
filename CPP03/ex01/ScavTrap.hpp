@@ -6,7 +6,7 @@
 /*   By: gpasztor <gpasztor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 15:33:48 by gpasztor          #+#    #+#             */
-/*   Updated: 2023/10/04 14:49:17 by gpasztor         ###   ########.fr       */
+/*   Updated: 2023/10/04 15:32:40 by gpasztor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include "ClapTrap.hpp"
 
-class ScavTrap: public ClapTrap
+class ScavTrap: public virtual ClapTrap
 {
 	public:
 		ScavTrap();
