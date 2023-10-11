@@ -6,7 +6,7 @@
 /*   By: gpasztor <gpasztor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/01 11:24:17 by gpasztor          #+#    #+#             */
-/*   Updated: 2023/10/01 15:58:33 by gpasztor         ###   ########.fr       */
+/*   Updated: 2023/10/11 16:04:40 by gpasztor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ Fixed::Fixed(const float num): _value((int)roundf(num * (1 << _fractional)))
 
 Fixed::~Fixed()
 {
-	std::cout << "Detructor called" << std::endl;
+	std::cout << "Destructor called" << std::endl;
 };
 
 Fixed::Fixed(const Fixed &obj)
