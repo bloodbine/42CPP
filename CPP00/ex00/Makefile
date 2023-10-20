@@ -6,13 +6,13 @@
 #    By: gpasztor <gpasztor@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/08 16:19:25 by gpasztor          #+#    #+#              #
-#    Updated: 2023/08/08 16:35:44 by gpasztor         ###   ########.fr        #
+#    Updated: 2023/10/20 11:37:56 by gpasztor         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= megaphone
 OBJDIR	= obj/
-SRC		=	megaphone.cpp
+SRC		= megaphone.cpp
 SRCOBJ	= $(patsubst %.cpp, $(OBJDIR)%.o, $(SRC))
 
 CC		= clang++
@@ -26,7 +26,6 @@ $(OBJDIR)%.o: %.cpp
 
 $(NAME): libmake $(SRCOBJ)
 	@$(CC) $(SRCOBJ) $(CFLAGS) -o $(NAME)
-	@curl https://icanhazdadjoke.com/ && echo
 
 clean:
 	$(RM) $(SRCOBJ)
