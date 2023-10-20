@@ -6,21 +6,26 @@
 /*   By: gpasztor <gpasztor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 16:49:12 by gpasztor          #+#    #+#             */
-/*   Updated: 2023/09/27 12:24:28 by gpasztor         ###   ########.fr       */
+/*   Updated: 2023/10/20 12:37:46 by gpasztor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 #include <iomanip>
 
-PhoneBook::PhoneBook(void)
+PhoneBook::PhoneBook(void): _index(0) {};
+
+PhoneBook::~PhoneBook(void) {};
+
+std::string	getInput(std::string prefix)
 {
-	this->_index = 0;
+	std::string input = RecursiveRead(prefix);
+	if (input.length() > 10)
+		return(input.substr(0, 9) + ".");
+	return(input);
 };
 
-PhoneBook::~PhoneBook(void){};
-
-std::string	PhoneBook::RecursiveRead(std::string prefix)
+std::string	RecursiveRead(std::string prefix)
 {
 	std::string	input;
 
@@ -53,38 +58,16 @@ void	PhoneBook::DisplayContactList(void)
 
 void	PhoneBook::AddNewContact(void)
 {
-	std::string input;
-
 	if (this->_index == 8)
 	{
 		std::cout << "Warning: Adding new contacts from now on will delete old ones" << std::endl;
 		this->_index = 0;
 	}
-	input = RecursiveRead("First Name: ");
-	if (input.length() > 10)
-		this->_contact[this->_index].SetFirstName(input.substr(0, 9) + ".");
-	else
-		this->_contact[this->_index].SetFirstName(input);
-	input = RecursiveRead("Last Name: ");
-	if (input.length() > 10)
-		this->_contact[this->_index].SetLastName(input.substr(0, 9) + ".");
-	else
-		this->_contact[this->_index].SetLastName(input);
-	input = RecursiveRead("Nickname: ");
-	if (input.length() > 10)
-		this->_contact[this->_index].SetNickname(input.substr(0, 9) + ".");
-	else
-		this->_contact[this->_index].SetNickname(input);
-	input = RecursiveRead("Phone Number: ");
-	if (input.length() > 10)
-		this->_contact[this->_index].SetPhoneNumber(input.substr(0, 9) + ".");
-	else
-		this->_contact[this->_index].SetPhoneNumber(input);
-	input = RecursiveRead("Darkest Secret: ");
-	if (input.length() > 10)
-		this->_contact[this->_index].SetDarkestSecret(input.substr(0, 9) + ".");
-	else
-		this->_contact[this->_index].SetDarkestSecret(input);
+	this->_contact[_index].SetFirstName(getInput("First Name: "));
+	this->_contact[_index].SetLastName(getInput("Last Name: "));
+	this->_contact[_index].SetNickname(getInput("Nickname: "));
+	this->_contact[_index].SetPhoneNumber(getInput("Phone Number: "));
+	this->_contact[_index].SetDarkestSecret(getInput("Darkest Secret: "));
 	this->_index++;
 };
 
@@ -102,7 +85,6 @@ void	PhoneBook::SearchContact(void)
 	index = std::stoi(input);
 	if (index <= 8 && index >= 1)
 	{
-		if ()
 		std::cout << "|" << std::setw(10) << index;
 		std::cout << "|" << std::setw(10) << this->_contact[index - 1].GetFirstName();
 		std::cout << "|" << std::setw(10) << this->_contact[index - 1].GetLastName();
