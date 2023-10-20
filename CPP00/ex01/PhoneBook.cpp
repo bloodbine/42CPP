@@ -6,7 +6,7 @@
 /*   By: gpasztor <gpasztor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 16:49:12 by gpasztor          #+#    #+#             */
-/*   Updated: 2023/10/20 12:37:46 by gpasztor         ###   ########.fr       */
+/*   Updated: 2023/10/20 14:41:54 by gpasztor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,8 @@ PhoneBook::PhoneBook(void): _index(0) {};
 
 PhoneBook::~PhoneBook(void) {};
 
-std::string	getInput(std::string prefix)
+std::string	displayInput(std::string input)
 {
-	std::string input = RecursiveRead(prefix);
 	if (input.length() > 10)
 		return(input.substr(0, 9) + ".");
 	return(input);
@@ -63,11 +62,11 @@ void	PhoneBook::AddNewContact(void)
 		std::cout << "Warning: Adding new contacts from now on will delete old ones" << std::endl;
 		this->_index = 0;
 	}
-	this->_contact[_index].SetFirstName(getInput("First Name: "));
-	this->_contact[_index].SetLastName(getInput("Last Name: "));
-	this->_contact[_index].SetNickname(getInput("Nickname: "));
-	this->_contact[_index].SetPhoneNumber(getInput("Phone Number: "));
-	this->_contact[_index].SetDarkestSecret(getInput("Darkest Secret: "));
+	this->_contact[_index].SetFirstName(RecursiveRead("First Name: "));
+	this->_contact[_index].SetLastName(RecursiveRead("Last Name: "));
+	this->_contact[_index].SetNickname(RecursiveRead("Nickname: "));
+	this->_contact[_index].SetPhoneNumber(RecursiveRead("Phone Number: "));
+	this->_contact[_index].SetDarkestSecret(RecursiveRead("Darkest Secret: "));
 	this->_index++;
 };
 
@@ -85,10 +84,11 @@ void	PhoneBook::SearchContact(void)
 	index = std::stoi(input);
 	if (index <= 8 && index >= 1)
 	{
+		std::cout << "|     Index|First Name| Last Name|  Nickname|" << std::endl;
 		std::cout << "|" << std::setw(10) << index;
-		std::cout << "|" << std::setw(10) << this->_contact[index - 1].GetFirstName();
-		std::cout << "|" << std::setw(10) << this->_contact[index - 1].GetLastName();
-		std::cout << "|" << std::setw(10) << this->_contact[index - 1].GetNickname() << "|" << std::endl;
+		std::cout << "|" << std::setw(10) << displayInput(this->_contact[index - 1].GetFirstName());
+		std::cout << "|" << std::setw(10) << displayInput(this->_contact[index - 1].GetLastName());
+		std::cout << "|" << std::setw(10) << displayInput(this->_contact[index - 1].GetNickname()) << "|" << std::endl;
 	}
 	else
 		std::cout << "Invalid index given\n";
