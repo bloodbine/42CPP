@@ -6,9 +6,12 @@
 /*   By: gpasztor <gpasztor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/12 12:11:06 by gpasztor          #+#    #+#             */
-/*   Updated: 2023/10/20 12:34:16 by gpasztor         ###   ########.fr       */
+/*   Updated: 2023/10/22 11:50:58 by gpasztor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef PHONEBOOK_HPP
+# define PHONEBOOK_HPP
 
 #include "Contact.hpp"
 
@@ -28,3 +31,5 @@ class PhoneBook
 };
 
 std::string	RecursiveRead(std::string prefix);
+
+#endif

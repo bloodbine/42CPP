@@ -6,9 +6,12 @@
 /*   By: gpasztor <gpasztor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 18:53:33 by gpasztor          #+#    #+#             */
-/*   Updated: 2023/08/12 13:32:43 by gpasztor         ###   ########.fr       */
+/*   Updated: 2023/10/22 11:50:35 by gpasztor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef CONTACT_HPP
+# define CONTACT_HPP
 
 #include <iostream>
 #include <cstring>
@@ -38,3 +41,5 @@ class Contact
 		std::string	GetPhoneNumber(void);
 		std::string	GetDarkestSecret(void);
 };
+
+#endif
