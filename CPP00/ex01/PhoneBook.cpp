@@ -6,11 +6,12 @@
 /*   By: gpasztor <gpasztor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 16:49:12 by gpasztor          #+#    #+#             */
-/*   Updated: 2023/10/20 14:41:54 by gpasztor         ###   ########.fr       */
+/*   Updated: 2023/10/22 11:43:31 by gpasztor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
+#include <_ctype.h>
 #include <iomanip>
 
 PhoneBook::PhoneBook(void): _index(0) {};
@@ -35,6 +36,17 @@ std::string	RecursiveRead(std::string prefix)
 		std::cout << "An error has occured on the Standard Input Stream\n";
 		exit(1);
 	};
+	if (prefix.compare("Phone Number: ") == 0)
+	{
+		for (size_t i = 0; i < input.length(); i++)
+		{
+			if (!isdigit(input[i]))
+			{
+				std::cout << "Phone Number must be numeric" << std::endl;
+				return (RecursiveRead(("Phone Number: ")));
+			}
+		}
+	}
 	if (input.length() > 0)
 		return (input);
 	else
