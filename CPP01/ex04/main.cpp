@@ -6,7 +6,7 @@
 /*   By: gpasztor <gpasztor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/30 12:22:47 by gpasztor          #+#    #+#             */
-/*   Updated: 2023/10/23 14:31:31 by gpasztor         ###   ########.fr       */
+/*   Updated: 2023/10/23 15:00:51 by gpasztor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <iostream>
 #include <ostream>
 
-void	string_replace(std::string&	string, std::string toreplace, std::string replacewith)
+void	string_replace(std::string&	string, std::string& toreplace, std::string& replacewith)
 {
 	std::size_t	pos = string.find(toreplace);
 	while (pos != std::string::npos)
@@ -39,7 +39,7 @@ int	main(int argc, char **argv)
 	if (argc != 4\
 	|| (!argv[1] || std::strlen(argv[1]) == 0)\
 	|| (!argv[2] || std::strlen(argv[2]) == 0)\
-	|| (!argv[3] || std::strlen(argv[3]) == 0))
+	|| (!argv[3]))
 	{
 		std::cerr << "Error: Invalid arguments. Example: ./Sed 'testfile.txt' 'toreplace' 'replacewith'" << std::endl;
 		return (1);
@@ -71,8 +71,7 @@ int	main(int argc, char **argv)
 			std::cerr << "An error occured while reading from the input file" << std::endl;
 			return (1);
 		}
-		std::string& stringREF = line;
-		string_replace(stringREF, toreplace, replacewith);
+		string_replace(line, toreplace, replacewith);
 		if (input.eof() == false)
 			output << line << std::endl;
 		else
