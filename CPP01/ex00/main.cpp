@@ -6,7 +6,7 @@
 /*   By: gpasztor <gpasztor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 10:55:48 by gpasztor          #+#    #+#             */
-/*   Updated: 2023/09/29 14:40:30 by gpasztor         ###   ########.fr       */
+/*   Updated: 2023/10/23 11:51:46 by gpasztor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,3 @@ int	main(void)
 	delete Fredericka;
 	return (0);
 };
-
-	// return (system("leaks BraiiiiiiinnnzzzZ"));

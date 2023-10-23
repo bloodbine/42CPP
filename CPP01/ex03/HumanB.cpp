@@ -6,7 +6,7 @@
 /*   By: gpasztor <gpasztor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 16:27:15 by gpasztor          #+#    #+#             */
-/*   Updated: 2023/09/29 17:29:32 by gpasztor         ###   ########.fr       */
+/*   Updated: 2023/10/23 11:51:06 by gpasztor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	HumanB::attack(void)
 		std::cout << _name << " attacks with their weapon " << _weapon->getType() << std::endl;
 };
 
-void	HumanB::setWeapon(Weapon weapon)
+void	HumanB::setWeapon(Weapon& weapon)
 {
 	_weapon = &weapon;
 };
