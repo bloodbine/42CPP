@@ -6,7 +6,7 @@
 /*   By: gpasztor <gpasztor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/30 12:22:47 by gpasztor          #+#    #+#             */
-/*   Updated: 2023/09/30 17:12:13 by gpasztor         ###   ########.fr       */
+/*   Updated: 2023/10/23 14:31:31 by gpasztor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,16 @@
 #include <iostream>
 #include <ostream>
 
-bool	string_replace(std::string&	string, std::string toreplace, std::string replacewith)
+void	string_replace(std::string&	string, std::string toreplace, std::string replacewith)
 {
 	std::size_t	pos = string.find(toreplace);
-	if (pos == std::string::npos)
-		return (false);
-	string.erase(pos, toreplace.length());
-	string.insert(pos, replacewith);
-	return (true);
+	while (pos != std::string::npos)
+	{
+		string.erase(pos, toreplace.length());
+		string.insert(pos, replacewith);
+		pos += replacewith.length();
+		pos = string.find(toreplace, pos);
+	}
 };
 
 int	main(int argc, char **argv)
@@ -34,9 +36,12 @@ int	main(int argc, char **argv)
 	std::string		toreplace;
 	std::string		replacewith;
 
-	if (argc != 4 || !argv[1] || !argv[2] || !argv[3])
+	if (argc != 4\
+	|| (!argv[1] || std::strlen(argv[1]) == 0)\
+	|| (!argv[2] || std::strlen(argv[2]) == 0)\
+	|| (!argv[3] || std::strlen(argv[3]) == 0))
 	{
-		std::cerr << "Invalid arguments. Example: ./Sed 'testfile.txt' 'toreplace' 'replacewith'" << std::endl;
+		std::cerr << "Error: Invalid arguments. Example: ./Sed 'testfile.txt' 'toreplace' 'replacewith'" << std::endl;
 		return (1);
 	}
 
@@ -67,7 +72,7 @@ int	main(int argc, char **argv)
 			return (1);
 		}
 		std::string& stringREF = line;
-		while (string_replace(stringREF, toreplace, replacewith) == true);
+		string_replace(stringREF, toreplace, replacewith);
 		if (input.eof() == false)
 			output << line << std::endl;
 		else
