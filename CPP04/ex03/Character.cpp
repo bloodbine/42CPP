@@ -6,7 +6,7 @@
 /*   By: gpasztor <gpasztor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 14:28:52 by gpasztor          #+#    #+#             */
-/*   Updated: 2023/10/11 12:45:43 by gpasztor         ###   ########.fr       */
+/*   Updated: 2023/10/24 11:28:20 by gpasztor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,19 @@
 
 Character::Character(): _name("Random dude"), _index(0)
 {
-	this->_inventory[0] = nullptr;
-	this->_inventory[1] = nullptr;
-	this->_inventory[2] = nullptr;
-	this->_inventory[3] = nullptr;
+	this->_inventory[0] = NULL;
+	this->_inventory[1] = NULL;
+	this->_inventory[2] = NULL;
+	this->_inventory[3] = NULL;
 	std::cout << "Character standard constructor called" << std::endl;
 };
 
 Character::Character(std::string name): _name(name), _index(0)
 {
-	this->_inventory[0] = nullptr;
-	this->_inventory[1] = nullptr;
-	this->_inventory[2] = nullptr;
-	this->_inventory[3] = nullptr;
+	this->_inventory[0] = NULL;
+	this->_inventory[1] = NULL;
+	this->_inventory[2] = NULL;
+	this->_inventory[3] = NULL;
 	std::cout << "Character constructor called" << std::endl;
 };
 
@@ -63,7 +63,7 @@ std::string	const & Character::getName() const
 
 void	Character::equip(AMateria* m)
 {
-	if (this->_index < 4 && m != nullptr)
+	if (this->_index < 4 && m != NULL)
 	{
 		this->_inventory[this->_index] = m;
 		this->_index++;
@@ -74,16 +74,16 @@ void	Character::unequip(int idx)
 {
 	AMateria*	discarded;
 
-	if (idx >= 0 && idx < 4 && this->_inventory[idx] != nullptr)
+	if (idx >= 0 && idx < 4 && this->_inventory[idx] != NULL)
 	{
 		discarded = this->_inventory[idx];
-		this->_inventory[idx] = nullptr;
+		this->_inventory[idx] = NULL;
 		this->_index--;
 	}
 };
 
 void	Character::use(int idx, ICharacter& target)
 {
-	if (idx >= 0 && idx < 4 && this->_inventory[idx] != nullptr)
+	if (idx >= 0 && idx < 4 && this->_inventory[idx] != NULL)
 		this->_inventory[idx]->use(target);
 };

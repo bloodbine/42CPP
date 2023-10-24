@@ -6,7 +6,7 @@
 /*   By: gpasztor <gpasztor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 14:59:40 by gpasztor          #+#    #+#             */
-/*   Updated: 2023/10/21 15:12:22 by gpasztor         ###   ########.fr       */
+/*   Updated: 2023/10/24 11:28:20 by gpasztor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ Account::~Account(void)
 
 void	Account::_displayTimestamp( void )
 {
-	std::time_t		rawtime = std::time(nullptr);
+	std::time_t		rawtime = std::time(NULL);
 	std::tm*		converted = std::localtime(&rawtime);
 	char			formatted[20];
 	std::strftime(formatted, sizeof(formatted), "[%Y%m%d_%H%M%S] ", converted);
