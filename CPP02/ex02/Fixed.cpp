@@ -6,7 +6,7 @@
 /*   By: gpasztor <gpasztor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/01 11:24:17 by gpasztor          #+#    #+#             */
-/*   Updated: 2023/10/11 16:04:35 by gpasztor         ###   ########.fr       */
+/*   Updated: 2023/10/24 15:16:44 by gpasztor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ Fixed::Fixed(const Fixed &obj)
 	std::cout << "Copy constructor called" << std::endl;
 	*this = obj;
 };
-
 
 int	Fixed::getRawBits(void) const
 {
@@ -91,70 +90,70 @@ Fixed Fixed::operator*(const Fixed& obj)
 
 Fixed &Fixed::operator++()
 {
-	this->_value++;
+	this->_value += 1;
 	return (*this);
 };
 
 Fixed Fixed::operator++(int)
 {
 	Fixed	temp(*this);
-	++(*this);
+	this->_value += 1;
 	return	(temp);
 	
 };
 
 Fixed &Fixed::operator--()
 {
-	this->_value--;
+	this->_value -= 1;
 	return (*this);
 };
 
 Fixed Fixed::operator--(int)
 {
 	Fixed	temp(*this);
-	--(*this);
+	this->_value -= 1;
 	return	(temp);
 	
 };
 
 int Fixed::operator>(const Fixed& obj) const
 {
-	if (this->getRawBits() > obj.getRawBits())
+	if (this->_value > obj._value)
 		return (1);
 	return (0);
 };
 
 int Fixed::operator>=(const Fixed& obj) const
 {
-	if (this->getRawBits() >= obj.getRawBits())
+	if (this->_value >= obj._value)
 		return (1);
 	return (0);
 };
 
 int Fixed::operator<(const Fixed& obj) const
 {
-	if (this->getRawBits() < obj.getRawBits())
+	if (this->_value < obj._value)
 		return (1);
 	return (0);
 };
 
 int Fixed::operator<=(const Fixed& obj) const
 {
-	if (this->getRawBits() <= obj.getRawBits())
+	if (this->_value <= obj._value)
 		return (1);
 	return (0);
 };
 
 int Fixed::operator==(const Fixed& obj) const
 {
-	if (this->getRawBits() == obj.getRawBits())
+	if (this->_value == obj._value)
 		return (1);
 	return (0);
 };
 
 int Fixed::operator!=(const Fixed& obj) const
 {
-	if (this->getRawBits() != obj.getRawBits())
+	if (this->_value != obj._value)
 		return (1);
 	return (0);
 };
