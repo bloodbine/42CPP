@@ -6,7 +6,7 @@
 /*   By: gpasztor <gpasztor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 14:30:30 by gpasztor          #+#    #+#             */
-/*   Updated: 2023/10/06 16:25:13 by gpasztor         ###   ########.fr       */
+/*   Updated: 2023/10/25 18:18:44 by gpasztor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,4 +63,6 @@ int	main(void)
 
 	delete wronganimal;
 	delete wrongcat;
+
+	return (0);
 };

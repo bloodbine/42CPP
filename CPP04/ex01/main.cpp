@@ -6,7 +6,7 @@
 /*   By: gpasztor <gpasztor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 14:30:30 by gpasztor          #+#    #+#             */
-/*   Updated: 2023/10/07 15:36:05 by gpasztor         ###   ########.fr       */
+/*   Updated: 2023/10/25 18:11:34 by gpasztor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,3 @@ int	main(void)
 
 	return (0);
 };
-
-// return (system("leaks Idontwanttotsettheworldonfire"));

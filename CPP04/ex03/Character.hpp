@@ -6,7 +6,7 @@
 /*   By: gpasztor <gpasztor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 10:44:12 by gpasztor          #+#    #+#             */
-/*   Updated: 2023/10/11 12:42:23 by gpasztor         ###   ########.fr       */
+/*   Updated: 2023/10/25 18:56:12 by gpasztor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ class Character: public ICharacter
 	private:
 		std::string	_name;
 		AMateria*	_inventory[4];
+		AMateria*	_discarded[100];
+		size_t		_discardindex;
 		size_t		_index;
 
 	public:
@@ -27,12 +29,12 @@ class Character: public ICharacter
 		Character(std::string name);
 		Character(const Character& obj);
 		Character& operator=(const Character& obj);
-		~Character();
+		virtual ~Character();
 
-		std::string const & getName() const;
-		void equip(AMateria* m);
-		void unequip(int idx);
-		void use(int idx, ICharacter& target);
+		virtual std::string const & getName() const;
+		virtual void equip(AMateria* m);
+		virtual void unequip(int idx);
+		virtual void use(int idx, ICharacter& target);
 };
 
 #endif

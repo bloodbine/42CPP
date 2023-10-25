@@ -6,7 +6,7 @@
 /*   By: gpasztor <gpasztor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 13:45:16 by gpasztor          #+#    #+#             */
-/*   Updated: 2023/10/07 15:22:48 by gpasztor         ###   ########.fr       */
+/*   Updated: 2023/10/25 17:35:27 by gpasztor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ class Dog: public Animal
 		Dog();
 		Dog(const Dog& obj);
 		Dog& operator=(const Dog& obj);
-		~Dog();
+		virtual ~Dog();
 
-		void	makeSound(void) const;
+		virtual void	makeSound(void) const;
 		void	listIdeas(void);
 		std::string	getIdea(int	index = 0);
 };

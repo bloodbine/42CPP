@@ -6,7 +6,7 @@
 /*   By: gpasztor <gpasztor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 10:46:45 by gpasztor          #+#    #+#             */
-/*   Updated: 2023/10/11 12:38:44 by gpasztor         ###   ########.fr       */
+/*   Updated: 2023/10/25 18:13:54 by gpasztor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ class	Ice: public AMateria
 		Ice();
 		Ice(const Ice& obj);
 		Ice& operator=(const Ice& obj);
-		~Ice();
+		virtual ~Ice();
 
-		AMateria& clone() const;
-		void use(ICharacter& target);
+		virtual AMateria& clone() const;
+		virtual void use(ICharacter& target);
 };
 
 #endif
