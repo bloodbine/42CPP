@@ -6,7 +6,7 @@
 /*   By: gpasztor <gpasztor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 13:59:36 by gpasztor          #+#    #+#             */
-/*   Updated: 2023/10/04 15:41:54 by gpasztor         ###   ########.fr       */
+/*   Updated: 2023/10/25 15:44:21 by gpasztor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,10 @@ class DiamondTrap: public ScavTrap, public FragTrap
 
 		void	attack(const std::string& target);
 		void	whoAmI();
+
+		int		getHP(void) const;
+		int		getEP(void) const;
+		int		getAP(void) const;
 };
 
 #endif

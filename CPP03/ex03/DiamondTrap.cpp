@@ -6,7 +6,7 @@
 /*   By: gpasztor <gpasztor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 14:45:25 by gpasztor          #+#    #+#             */
-/*   Updated: 2023/10/06 11:59:14 by gpasztor         ###   ########.fr       */
+/*   Updated: 2023/10/25 16:14:21 by gpasztor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ DiamondTrap::DiamondTrap(): ClapTrap(), ScavTrap(), FragTrap()
 {
 	this->_name = "DefTrap";
 	this->ClapTrap::_name = this->_name + "_clap_name";
-	this->_hit_points = this->FragTrap::_hit_points;
-	this->_energy_points = this->ScavTrap::_energy_points;
-	this->_attack_damage = this->FragTrap::_attack_damage;
+	this->_hit_points = 100;
+	this->_energy_points = 50;
+	this->_attack_damage = 30;
 	std::cout << "DiamondTrap unit " << this->_name << " has been constructed" << std::endl;
 };
 
@@ -26,9 +26,9 @@ DiamondTrap::DiamondTrap(std::string name): ClapTrap(), ScavTrap(), FragTrap()
 {
 	this->_name = name;
 	this->ClapTrap::_name = this->_name + "_clap_name";
-	this->_hit_points = this->FragTrap::_hit_points;
-	this->_energy_points = this->ScavTrap::_energy_points;
-	this->_attack_damage = this->FragTrap::_attack_damage;
+	this->_hit_points = 100;
+	this->_energy_points = 50;
+	this->_attack_damage = 30;
 	std::cout << "DiamondTrap unit " << this->_name << " has been constructed" << std::endl;
 };
 
@@ -67,3 +67,9 @@ void	DiamondTrap::whoAmI()
 	std::cout << "Hi, I am DiamondTrap unit " << this->_name\
 	<< ", originally made as ClapTrap unit " << this->ClapTrap::_name << std::endl;
 };
+
+int		DiamondTrap::getHP(void) const {return(this->_hit_points);};
+
+int		DiamondTrap::getEP(void) const {return(this->_energy_points);};
+
+int		DiamondTrap::getAP(void) const {return(this->_attack_damage);};

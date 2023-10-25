@@ -6,7 +6,7 @@
 /*   By: gpasztor <gpasztor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 15:01:10 by gpasztor          #+#    #+#             */
-/*   Updated: 2023/10/03 15:02:25 by gpasztor         ###   ########.fr       */
+/*   Updated: 2023/10/25 11:23:32 by gpasztor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,7 @@ int	main(void)
 	clappie.attack("Random raider");
 	clappie.takeDamage(5);
 	clappie.beRepaired(5);
-	clappie.takeDamage(10);
+	for (int i = 0; i < 10; i++)
+		clappie.beRepaired(1);
+	clappie.takeDamage(20);
 };

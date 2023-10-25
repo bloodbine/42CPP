@@ -6,7 +6,7 @@
 /*   By: gpasztor <gpasztor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 15:33:45 by gpasztor          #+#    #+#             */
-/*   Updated: 2023/10/06 11:43:12 by gpasztor         ###   ########.fr       */
+/*   Updated: 2023/10/25 14:02:58 by gpasztor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,26 +43,26 @@ ScavTrap& ScavTrap::operator=(const ScavTrap &obj)
 {
 	if (this != &obj)
 	{
-		this->_name = obj.getName();
-		this->_hit_points = obj.getHP();
-		this->_energy_points = obj.getEP();
-		this->_attack_damage = obj.getAP();
+		this->_name = obj._name;
+		this->_hit_points = obj._hit_points;
+		this->_energy_points = obj._energy_points;
+		this->_attack_damage = obj._attack_damage;
 	}
 	return (*this);
 };
 
 void	ScavTrap::attack(const std::string& target)
 {
-	if (this->_hit_points > 0 && this->_energy_points > 0)
+	if (this->_hit_points <= 0)
+		std::cout << "ScavTrap " << this->_name << " is dead and cannot attack" << std::endl;
+	else if (this->_energy_points <= 0)
+		std::cout << "ScavTrap " << this->_name << " is out of energy and cannot attack" << std::endl;
+	else
 	{
-		std::cout << "ScavTrap " << this->_name << " attacks " << target \
-		<< ", causing " << this->_attack_damage << " points of damage" << std::endl;
+		std::cout << "ScavTrap " << this->_name << " attacks " << target\
+		<< " causing " << this->_attack_damage << " points of damage" << std::endl;
 		this->_energy_points--;
 	}
-	else if (this->_energy_points > 0)
-		std::cout << "ScavTrap " << this->_name << " is out of energy and cannot attack anyone" << std::endl;
-	else
-		std::cout << "ScavTrap " << this->_name << " is dead and cannot attack anyone" << std::endl;
 };
 
 void	ScavTrap::guardGate(void)
