@@ -6,35 +6,28 @@
 /*   By: gpasztor <gpasztor@42heilbronn.student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 16:08:14 by gpasztor          #+#    #+#             */
-/*   Updated: 2023/10/28 09:28:29 by gpasztor         ###   ########.fr       */
+/*   Updated: 2023/10/28 10:58:05 by gpasztor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int	main(void)
 {
 	try
 	{
-		Bureaucrat defJohn = Bureaucrat();
-		std::cout << defJohn << std::endl;
-		defJohn.lowerGrade();
-	}
-	catch(std::exception & e)
-	{
-		std::cout << "defJohn " << e.what() << std::endl;
-		return (1);
-	};
+		Bureaucrat Afton = Bureaucrat("Afton", 100);
+		std::cout << Afton << std::endl;
 
-	try
-	{
-		Bureaucrat Michael = Bureaucrat("Michael", 1);
-		std::cout << Michael << std::endl;
-		Michael.raiseGrade();
+		Form Loan("Loan #5426", 120, 130);
+		std::cout << Loan << std::endl;
+		Loan.beSigned(Afton);
+		std::cout << Loan << std::endl;
 	}
 	catch(std::exception & e)
 	{
-		std::cout << "Michael " << e.what() << std::endl;
+		std::cout << "Afton " << e.what() << std::endl;
 		return (1);
 	};
 
