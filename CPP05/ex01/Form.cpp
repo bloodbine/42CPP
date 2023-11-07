@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gpasztor <gpasztor@42heilbronn.student.    +#+  +:+       +#+        */
+/*   By: gpasztor <gpasztor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 09:44:56 by gpasztor          #+#    #+#             */
-/*   Updated: 2023/10/28 10:57:46 by gpasztor         ###   ########.fr       */
+/*   Updated: 2023/11/07 15:21:38 by gpasztor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ std::string	Form::getName() const {return(this->_name);};
 bool			Form::getSigned() const {return(this->_signed);};
 int			Form::getSignGrade() const {return(this->_signgrade);};
 int			Form::getExecGrade() const {return(this->_execgrade);};
+void		Form::setSigned(bool status) {this->_signed = status;};
 
 void	Form::beSigned(Bureaucrat &bureaucrat)
 {
@@ -73,14 +74,14 @@ void	Form::beSigned(Bureaucrat &bureaucrat)
 std::ostream &operator<<(std::ostream &out, const Form& obj)
 {
 	out << "Form " << obj.getName();
-	if (obj.getSigned() == true)
+	if (obj.getSigned())
 	{
 		std::cout << " status: signed,";
 		std::cout << " execution level: " << obj.getExecGrade();
 		return (out);
 	}
-		std::cout << " status: unsigned,";
-		std::cout << " signature level: " << obj.getSignGrade() << ",";
-		std::cout << " execution level: " << obj.getExecGrade();
+	std::cout << " status: unsigned,";
+	std::cout << " signature level: " << obj.getSignGrade() << ",";
+	std::cout << " execution level: " << obj.getExecGrade();
 	return (out);
 };

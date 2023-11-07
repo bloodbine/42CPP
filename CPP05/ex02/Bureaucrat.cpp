@@ -3,15 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gpasztor <gpasztor@42heilbronn.student.    +#+  +:+       +#+        */
+/*   By: gpasztor <gpasztor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 15:31:01 by gpasztor          #+#    #+#             */
-/*   Updated: 2023/10/28 10:45:29 by gpasztor         ###   ########.fr       */
+/*   Updated: 2023/11/07 15:49:01 by gpasztor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 const char * Bureaucrat::GradeTooHighException::what() const throw()
 {
@@ -71,19 +74,35 @@ void	Bureaucrat::lowerGrade()
 		this->_grade++;
 };
 
-void	Bureaucrat::signForm(Form &form)
+void	Bureaucrat::signForm(AForm &form)
 {
-	if (form.getSigned() == true)
+	if (form.getSigned())
 	{
 		std::cout << this->getName() << " cannot sign " << form.getName();
 		std::cout << " because it is already signed" << std::endl;
 	}
 	else if (this->_grade <= form.getSignGrade())
+	{
 		std::cout << this->getName() << " signed " << form.getName() << std::endl;
+		form.setSigned(true);
+	}
 	else
 	{
 		std::cout << this->getName() << " cannot sign " << form.getName();
 		std::cout << " because he/she lacks authority to do so"  << std::endl;
+	}
+};
+
+void	Bureaucrat::executeForm(AForm const & form)
+{
+	try
+	{
+		form.execute(*this);
+		std::cout << "Bureaucrat " << this->getName() << "executed form" << form.getName() << std::endl;
+	}
+	catch(std::exception & e)
+	{
+		std::cout << "Bureaucrat " << this->getName() << " could not execute " << form.getName() << "because: " << e.what() << std::endl;
 	}
 };
 

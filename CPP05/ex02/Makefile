@@ -1,10 +1,13 @@
-NAME	=	Forms
+NAME	=	ExtraForms
 
 OBJDIR	=	obj/
 
 MAIN	=	main
-UTIL	=	Bureaucrat \
-			Form
+UTIL	=	Bureaucrat				\
+			AForm					\
+			PresidentialPardonForm	\
+			RobotomyRequestForm		\
+			ShrubberyCreationForm
 
 SOURCE	= $(MAIN) $(UTIL)
 

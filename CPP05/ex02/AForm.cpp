@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gpasztor <gpasztor@42heilbronn.student.    +#+  +:+       +#+        */
+/*   By: gpasztor <gpasztor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 09:44:56 by gpasztor          #+#    #+#             */
-/*   Updated: 2023/11/05 23:10:17 by gpasztor         ###   ########.fr       */
+/*   Updated: 2023/11/07 15:31:39 by gpasztor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,27 +60,16 @@ AForm::~AForm()
 };
 
 std::string	AForm::getName() const {return(this->_name);};
-bool			AForm::getSigned() const {return(this->_signed);};
+bool		AForm::getSigned() const {return(this->_signed);};
 int			AForm::getSignGrade() const {return(this->_signgrade);};
 int			AForm::getExecGrade() const {return(this->_execgrade);};
+void		AForm::setSigned(bool status) {this->_signed = status;};
 
 void	AForm::beSigned(Bureaucrat &bureaucrat)
 {
 	if (bureaucrat.getGrade() > this->_signgrade)
 		throw Bureaucrat::GradeTooLowException();
 	bureaucrat.signForm(*this);
-};
-
-void	AForm::execute(const Bureaucrat &executor)
-{
-	if (this->_execgrade < executor.getGrade())
-		throw Bureaucrat::GradeTooLowException();
-	if (this->_name.compare("PresidentialPardonForm") == 0)
-		PresidentialPardonForm::execute(executor);
-	else if (this->_name.compare("RobotomyRequestForm") == 0)
-		RobotomyRequestForm::execute(executor);
-	else if (this->_name.compare("ShrubberyCreationForm") == 0)
-		ShrubberyCreationForm::execute(executor);
 };
 
 std::ostream &operator<<(std::ostream &out, const AForm& obj)
@@ -92,8 +81,18 @@ std::ostream &operator<<(std::ostream &out, const AForm& obj)
 		std::cout << " execution level: " << obj.getExecGrade();
 		return (out);
 	}
-		std::cout << " status: unsigned,";
-		std::cout << " signature level: " << obj.getSignGrade() << ",";
-		std::cout << " execution level: " << obj.getExecGrade();
+	std::cout << " status: unsigned,";
+	std::cout << " signature level: " << obj.getSignGrade() << ",";
+	std::cout << " execution level: " << obj.getExecGrade();
 	return (out);
+};
+
+const char * AForm::FormUnsignedException::what() const throw()
+{
+	return ("Form must be signed before execution");
+};
+
+const char * AForm::FormGradeTooHighException::what() const throw()
+{
+	return ("Form's grade is too high for the executor");
 };

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gpasztor <gpasztor@42heilbronn.student.    +#+  +:+       +#+        */
+/*   By: gpasztor <gpasztor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 22:46:08 by gpasztor          #+#    #+#             */
-/*   Updated: 2023/11/05 23:09:52 by gpasztor         ###   ########.fr       */
+/*   Updated: 2023/11/07 14:39:30 by gpasztor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,16 @@
 
 class	PresidentialPardonForm: public AForm
 {
+	private:
+		std::string	_target;
+
 	public:
-		PresidentialPardonForm();
-		PresidentialPardonForm(const AForm &obj);
-		PresidentialPardonForm& operator=(const AForm &obj);
+		PresidentialPardonForm(std::string target);
+		PresidentialPardonForm(const PresidentialPardonForm &obj);
+		PresidentialPardonForm& operator=(const PresidentialPardonForm &obj);
 		virtual ~PresidentialPardonForm();
 
-		virtual void	execute(Bureaucrat const& executor);
+		virtual void	execute(Bureaucrat const& executor) const;
 };
 
 #endif

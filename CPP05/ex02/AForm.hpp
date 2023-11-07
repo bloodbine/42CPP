@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gpasztor <gpasztor@42heilbronn.student.    +#+  +:+       +#+        */
+/*   By: gpasztor <gpasztor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 09:30:00 by gpasztor          #+#    #+#             */
-/*   Updated: 2023/11/05 22:59:59 by gpasztor         ###   ########.fr       */
+/*   Updated: 2023/11/07 15:19:31 by gpasztor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class AForm
 		bool				_signed;
 		const	int			_signgrade;
 		const	int			_execgrade;
-	
+
 	public:
 		AForm();
 		AForm(std::string name, int signgrade, int execgrade);
@@ -38,8 +38,21 @@ class AForm
 		virtual int			getSignGrade() const;
 		virtual int			getExecGrade() const;
 
+		virtual void		setSigned(bool status);
+
 		virtual void		beSigned(Bureaucrat& bureaucrat);
-		virtual void		execute(Bureaucrat const& executor);
+		virtual void		execute(Bureaucrat const & executor) const = 0;
+
+		class FormUnsignedException: public std::exception
+		{
+			public:
+				virtual const char * what() const throw();
+		};
+		class FormGradeTooHighException: public std::exception
+		{
+			public:
+				virtual const char * what() const throw();
+		};
 };
 
 std::ostream &operator<<(std::ostream &out, const AForm& obj);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gpasztor <gpasztor@42heilbronn.student.    +#+  +:+       +#+        */
+/*   By: gpasztor <gpasztor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 09:30:00 by gpasztor          #+#    #+#             */
-/*   Updated: 2023/10/28 10:54:17 by gpasztor         ###   ########.fr       */
+/*   Updated: 2023/11/07 15:21:15 by gpasztor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class Form
 		bool				_signed;
 		const	int			_signgrade;
 		const	int			_execgrade;
-	
+
 	public:
 		Form();
 		Form(std::string name, int signgrade, int execgrade);
@@ -34,9 +34,11 @@ class Form
 		~Form();
 
 		std::string	getName() const;
-		bool			getSigned() const;
+		bool		getSigned() const;
 		int			getSignGrade() const;
 		int			getExecGrade() const;
+
+		void		setSigned(bool status);
 
 		void				beSigned(Bureaucrat& bureaucrat);
 };

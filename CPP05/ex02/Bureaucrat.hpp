@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gpasztor <gpasztor@42heilbronn.student.    +#+  +:+       +#+        */
+/*   By: gpasztor <gpasztor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 14:40:29 by gpasztor          #+#    #+#             */
-/*   Updated: 2023/11/05 22:52:40 by gpasztor         ###   ########.fr       */
+/*   Updated: 2023/11/07 12:32:54 by gpasztor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ class Bureaucrat
 		void				raiseGrade();
 		void				lowerGrade();
 		void				signForm(AForm &form);
+		void				executeForm(AForm const & form);
 
 		class GradeTooHighException: public std::exception
 		{

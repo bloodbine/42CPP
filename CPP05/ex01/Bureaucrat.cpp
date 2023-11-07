@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gpasztor <gpasztor@42heilbronn.student.    +#+  +:+       +#+        */
+/*   By: gpasztor <gpasztor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 15:31:01 by gpasztor          #+#    #+#             */
-/*   Updated: 2023/10/28 10:45:29 by gpasztor         ###   ########.fr       */
+/*   Updated: 2023/11/07 15:22:02 by gpasztor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,13 +73,16 @@ void	Bureaucrat::lowerGrade()
 
 void	Bureaucrat::signForm(Form &form)
 {
-	if (form.getSigned() == true)
+	if (form.getSigned())
 	{
 		std::cout << this->getName() << " cannot sign " << form.getName();
 		std::cout << " because it is already signed" << std::endl;
 	}
 	else if (this->_grade <= form.getSignGrade())
+	{
 		std::cout << this->getName() << " signed " << form.getName() << std::endl;
+		form.setSigned(true);
+	}
 	else
 	{
 		std::cout << this->getName() << " cannot sign " << form.getName();
