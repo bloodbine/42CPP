@@ -6,7 +6,7 @@
 /*   By: gpasztor <gpasztor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 15:31:01 by gpasztor          #+#    #+#             */
-/*   Updated: 2023/11/07 15:49:01 by gpasztor         ###   ########.fr       */
+/*   Updated: 2023/11/08 10:08:08 by gpasztor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,11 +98,11 @@ void	Bureaucrat::executeForm(AForm const & form)
 	try
 	{
 		form.execute(*this);
-		std::cout << "Bureaucrat " << this->getName() << "executed form" << form.getName() << std::endl;
+		std::cout << "Bureaucrat " << this->getName() << " executed form " << form.getName() << std::endl;
 	}
 	catch(std::exception & e)
 	{
-		std::cout << "Bureaucrat " << this->getName() << " could not execute " << form.getName() << "because: " << e.what() << std::endl;
+		std::cout << "Bureaucrat " << this->getName() << " could not execute " << form.getName() << " because: " << e.what() << std::endl;
 	}
 };
 
