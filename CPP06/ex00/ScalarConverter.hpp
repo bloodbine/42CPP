@@ -6,7 +6,7 @@
 /*   By: gpasztor <gpasztor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 12:19:59 by gpasztor          #+#    #+#             */
-/*   Updated: 2023/11/09 13:50:45 by gpasztor         ###   ########.fr       */
+/*   Updated: 2023/11/12 12:41:25 by gpasztor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,11 @@ class ScalarConverter
 		ScalarConverter& operator=(const ScalarConverter& obj);
 		~ScalarConverter();
 
-		void	_fromChar(std::string literal);
-		void	_fromInt(std::string literal);
-		void	_fromFloat(std::string literal);
-		void	_fromDouble(std::string literal);
+		static void	_fromChar(std::string literal);
+		static void	_fromInt(std::string literal);
+		static void	_fromFloat(std::string literal);
+		static void	_fromDouble(std::string literal);
+		static void _fromMisc(int mcase);
 
 	public:
 		static void	convert(std::string literal);
