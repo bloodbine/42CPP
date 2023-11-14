@@ -1,33 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   whatever.hpp                                       :+:      :+:    :+:   */
+/*   iter.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gpasztor <gpasztor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/14 11:04:55 by gpasztor          #+#    #+#             */
-/*   Updated: 2023/11/14 11:58:53 by gpasztor         ###   ########.fr       */
+/*   Created: 2023/11/14 11:47:11 by gpasztor          #+#    #+#             */
+/*   Updated: 2023/11/14 11:58:41 by gpasztor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WHATEVER_HPP
-# define WHATEVER_HPP
+#ifndef ITER_HPP
+# define ITER_HPP
 
-template<typename var> void	swap(var& A, var& B)
+template<typename var> void	iter(var *list, unsigned int len, void (*func)(var const &))
 {
-	var temp = A;
-	A = B;
-	B = temp;
-};
-
-template<typename var> var	min(const var& A, const var& B)
-{
-	return ((A < B) ? A : B);
-};
-
-template<typename var> var	max(const var& A, const var& B)
-{
-	return ((A > B) ? A : B);
+	for (unsigned int i = 0; i < len; i++)
+		func(list[i]);
 };
 
 #endif
