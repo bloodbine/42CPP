@@ -6,12 +6,11 @@
 /*   By: gpasztor <gpasztor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 17:33:54 by gpasztor          #+#    #+#             */
-/*   Updated: 2023/12/15 14:35:22 by gpasztor         ###   ########.fr       */
+/*   Updated: 2023/12/16 16:30:18 by gpasztor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "VectorFJ.hpp"
-#include <vector>
 #include <iostream>
 
 VectorFJ::VectorFJ(std::vector<uint32_t>& vectorRef): _vectorRef(vectorRef), _isEven(true) {};
@@ -22,10 +21,7 @@ VectorFJ& VectorFJ::operator=(const VectorFJ& obj) {(void)obj; return *this;};
 
 VectorFJ::~VectorFJ() {};
 
-void	VectorFJ::FordJohnsonSort()
-{
-	this->_sortPairs();
-};
+void	VectorFJ::FordJohnsonSort() {this->_sortPairs();};
 
 void	VectorFJ::_sortPairs(void)
 {
@@ -37,8 +33,8 @@ void	VectorFJ::_sortPairs(void)
 		if (this->_vectorRef[0] > this->_vectorRef[1])
 		{
 			tempnum = this->_vectorRef[0];
-			this->_vectorRef.erase(this->_vectorRef.begin());
-			this->_vectorRef.push_back(tempnum);
+			this->_vectorRef[0] = this->_vectorRef[1];
+			this->_vectorRef[1] = tempnum;
 		}
 	}
 	else if (vectorsize > 2)
@@ -50,8 +46,8 @@ void	VectorFJ::_sortPairs(void)
 			this->_isEven = false;
 			vectorsize--;
 		}
-		for (std::vector<uint32_t>::iterator it = this->_vectorRef.begin();\
-		it != this->_vectorRef.end();\
+		for (std::vector<uint32_t>::iterator it = this->_vectorRef.begin();
+		it != this->_vectorRef.end();
 		it += 2)
 		{
 			if (*it < *(it + 1))
@@ -103,7 +99,7 @@ void	VectorFJ::_mergeInsertSecond(void)
 	while (!tempVector.empty())
 	{
 		std::vector<uint32_t>::iterator it = this->_vectorRef.begin();
-		while (*tempit > *it) {it++;}
+		while (tempit != tempVector.end() && it != this->_vectorRef.end() && *tempit > *it) {it++;}
 		this->_vectorRef.insert(it, *tempit);
 		tempit = tempVector.erase(tempit);
 	}

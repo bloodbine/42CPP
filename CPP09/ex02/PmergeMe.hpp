@@ -6,7 +6,7 @@
 /*   By: gpasztor <gpasztor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 15:45:23 by gpasztor          #+#    #+#             */
-/*   Updated: 2023/12/13 14:10:22 by gpasztor         ###   ########.fr       */
+/*   Updated: 2023/12/16 16:13:33 by gpasztor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ class PmergeMe
 	private:
 		std::vector<uint32_t>	_vectorCont;
 		std::deque<uint32_t>	_dequeCont;
-		std::time_t				_vectorTime[2];
-		std::time_t				_dequeTime[2];
+		std::clock_t			_vectorTime[2];
+		std::clock_t			_dequeTime[2];
 
 	public:
 		PmergeMe(char **arguments);
@@ -37,6 +37,11 @@ class PmergeMe
 		void	recordVectorEnd(void);
 		void	recordDequeStart(void);
 		void	recordDequeEnd(void);
+
+		double	getVectorDelta(void);
+		double	getDequeDelta(void);
+		int		getVectorSize(void);
+		int		getDequeSize(void);
 
 		std::vector<uint32_t>& getVectorCont(void);
 		std::deque<uint32_t>& getDequeCont(void);

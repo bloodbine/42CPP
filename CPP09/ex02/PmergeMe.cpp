@@ -6,11 +6,12 @@
 /*   By: gpasztor <gpasztor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 15:45:20 by gpasztor          #+#    #+#             */
-/*   Updated: 2023/12/15 13:55:22 by gpasztor         ###   ########.fr       */
+/*   Updated: 2023/12/16 16:27:30 by gpasztor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
+#include <ctime>
 
 PmergeMe::PmergeMe(char **arguments)
 {
@@ -21,7 +22,7 @@ PmergeMe::PmergeMe(char **arguments)
 		std::string arg(arguments[i]);
 		tempnum = std::stoll(arg);
 		if (tempnum < 0)
-			throw std::invalid_argument("Input must be positive integer");
+			throw std::invalid_argument("Error: Input must be positive integer");
 		this->_vectorCont.push_back(static_cast<uint32_t>(tempnum));
 		i++;
 	}
@@ -49,10 +50,15 @@ PmergeMe& PmergeMe::operator=(const PmergeMe& obj)
 
 PmergeMe::~PmergeMe() {};
 
-void	PmergeMe::recordVectorStart() {this->_vectorTime[0] = std::time(NULL);};
-void	PmergeMe::recordVectorEnd() {this->_vectorTime[1] = std::time(NULL);};
-void	PmergeMe::recordDequeStart() {this->_dequeTime[0] = std::time(NULL);};
-void	PmergeMe::recordDequeEnd() {this->_dequeTime[1] = std::time(NULL);};
+void	PmergeMe::recordVectorStart(void) {this->_vectorTime[0] = std::clock();};
+void	PmergeMe::recordVectorEnd(void) {this->_vectorTime[1] = std::clock();};
+void	PmergeMe::recordDequeStart(void) {this->_dequeTime[0] = std::clock();};
+void	PmergeMe::recordDequeEnd(void) {this->_dequeTime[1] = std::clock();};
+
+double	PmergeMe::getVectorDelta(void) {return (static_cast<double>(this->_vectorTime[1] - this->_vectorTime[0]) / (CLOCKS_PER_SEC / 1000000));}
+double	PmergeMe::getDequeDelta(void) {return (static_cast<double>(this->_dequeTime[1] - this->_dequeTime[0]) / (CLOCKS_PER_SEC / 1000000));}
+int		PmergeMe::getVectorSize(void) {return (this->_vectorCont.size());}
+int		PmergeMe::getDequeSize(void) {return (this->_dequeCont.size());}
 
 std::vector<uint32_t>&	PmergeMe::getVectorCont() {return (this->_vectorCont);};
 std::deque<uint32_t>&	PmergeMe::getDequeCont() {return (this->_dequeCont);};
@@ -70,3 +76,4 @@ void	PmergeMe::displayDequeCont(void)
 		it != this->_dequeCont.end();
 		it++) std::cout << *it << " ";
 };
+
