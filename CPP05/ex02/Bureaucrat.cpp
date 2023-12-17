@@ -6,7 +6,7 @@
 /*   By: gpasztor <gpasztor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 15:31:01 by gpasztor          #+#    #+#             */
-/*   Updated: 2023/11/08 10:08:08 by gpasztor         ###   ########.fr       */
+/*   Updated: 2023/12/17 13:52:50 by gpasztor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,6 +111,6 @@ int	Bureaucrat::getGrade() const {return (this->_grade);};
 
 std::ostream &operator<<(std::ostream &out, const Bureaucrat& obj)
 {
-	out << obj.getName() << ", Bureaucrat grade " << obj.getGrade();
+	out << obj.getName() << ", bureaucrat grade " << obj.getGrade();
 	return out;
 };

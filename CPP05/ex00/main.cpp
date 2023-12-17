@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gpasztor <gpasztor@42heilbronn.student.    +#+  +:+       +#+        */
+/*   By: gpasztor <gpasztor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 16:08:14 by gpasztor          #+#    #+#             */
-/*   Updated: 2023/10/28 09:28:29 by gpasztor         ###   ########.fr       */
+/*   Updated: 2023/12/17 13:25:23 by gpasztor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,7 @@ int	main(void)
 		defJohn.lowerGrade();
 	}
 	catch(std::exception & e)
-	{
-		std::cout << "defJohn " << e.what() << std::endl;
-		return (1);
-	};
+	{std::cout << "defJohn " << e.what() << std::endl;};
 
 	try
 	{
@@ -33,10 +30,7 @@ int	main(void)
 		Michael.raiseGrade();
 	}
 	catch(std::exception & e)
-	{
-		std::cout << "Michael " << e.what() << std::endl;
-		return (1);
-	};
+	{std::cout << "Michael " << e.what() << std::endl;};
 
 	return (0);
 };

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gpasztor <gpasztor@42heilbronn.student.    +#+  +:+       +#+        */
+/*   By: gpasztor <gpasztor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 16:08:14 by gpasztor          #+#    #+#             */
-/*   Updated: 2023/10/28 10:58:05 by gpasztor         ###   ########.fr       */
+/*   Updated: 2023/12/17 14:15:01 by gpasztor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,7 @@ int	main(void)
 		std::cout << Loan << std::endl;
 	}
 	catch(std::exception & e)
-	{
-		std::cout << "Afton " << e.what() << std::endl;
-		return (1);
-	};
+	{std::cout << "Afton " << e.what() << std::endl;};
 
 	return (0);
 };

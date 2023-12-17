@@ -6,7 +6,7 @@
 /*   By: gpasztor <gpasztor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 09:30:00 by gpasztor          #+#    #+#             */
-/*   Updated: 2023/11/07 15:21:15 by gpasztor         ###   ########.fr       */
+/*   Updated: 2023/12/17 14:05:36 by gpasztor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ class Form
 
 		void		setSigned(bool status);
 
-		void				beSigned(Bureaucrat& bureaucrat);
+		void		beSigned(Bureaucrat& bureaucrat);
 };
 
 std::ostream &operator<<(std::ostream &out, const Form& obj);
