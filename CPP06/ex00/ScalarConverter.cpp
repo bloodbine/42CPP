@@ -6,7 +6,7 @@
 /*   By: gpasztor <gpasztor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 12:42:02 by gpasztor          #+#    #+#             */
-/*   Updated: 2023/11/12 13:30:02 by gpasztor         ###   ########.fr       */
+/*   Updated: 2023/12/17 16:36:17 by gpasztor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,8 +111,10 @@ void	ScalarConverter::_fromFloat(std::string literal)
 void	ScalarConverter::_fromDouble(std::string literal)
 {
 	double d = static_cast<double>(std::stod(literal));
-	if (fmod(d, static_cast<double>(static_cast<int>(d))) == 0)
+	if (std::fmodf(d, static_cast<double>(static_cast<int>(d))) == 0.0 && std::isprint(static_cast<int>(d)) != 0)
 		std::cout << "Char: '" << static_cast<char>(d) << "'" << std::endl;
+	else if (std::fmodf(d, static_cast<double>(static_cast<int>(d))) == 0.0 && std::isprint(static_cast<int>(d)) == 0)
+		std::cout << "Char: Non Displayable" << std::endl;
 	else
 		std::cout << "Char: Impossible" << std::endl;
 	std::cout << "Int: " << static_cast<int>(d) << std::endl;
@@ -137,7 +139,7 @@ void	ScalarConverter::convert(std::string literal)
 		ScalarConverter::_fromMisc(i);
 	else if (literal.length() > 1 && f_pos != std::string::npos && f_pos != literal.length() - 1)
 		std::cout << "Error" << std::endl;
-	else if (literal.length() == 1 && std::isalpha(literal[0]) != 0)
+	else if (literal.length() == 1 && std::isprint(literal[0]) != 0 && (std::isdigit(literal[0]) == 0))
 		ScalarConverter::_fromChar(literal);
 	else if (dot_pos != std::string::npos && f_pos != std::string::npos && std::isdigit(literal[f_pos - 1]) != 0)
 		ScalarConverter::_fromFloat(literal);
