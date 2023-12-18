@@ -6,14 +6,14 @@
 /*   By: gpasztor <gpasztor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 13:39:52 by gpasztor          #+#    #+#             */
-/*   Updated: 2023/11/12 14:34:34 by gpasztor         ###   ########.fr       */
+/*   Updated: 2023/12/18 16:24:48 by gpasztor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SERIALIZER_HPP
 # define SERIALIZER_HPP
 
-#include <cstdint>
+#include <stdint.h>
 
 class Data;
 

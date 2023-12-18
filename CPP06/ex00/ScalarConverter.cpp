@@ -6,7 +6,7 @@
 /*   By: gpasztor <gpasztor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 12:42:02 by gpasztor          #+#    #+#             */
-/*   Updated: 2023/12/17 16:36:17 by gpasztor         ###   ########.fr       */
+/*   Updated: 2023/12/18 16:19:16 by gpasztor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void	ScalarConverter::_fromInt(std::string literal)
 {
 	try
 	{
-		int i = static_cast<int>(std::stoi(literal));
+		int i = static_cast<int>(std::atoi(literal.c_str()));
 		if (std::isprint(static_cast<char>(i)) == 0)
 			std::cout << "Char: Non Displayable" << std::endl;
 		else
@@ -96,10 +96,10 @@ void	ScalarConverter::_fromInt(std::string literal)
 
 void	ScalarConverter::_fromFloat(std::string literal)
 {
-	float f = static_cast<float>(std::stof(literal));
-	if (std::fmodf(f, static_cast<float>(static_cast<int>(f))) == 0.0f && std::isprint(static_cast<int>(f)) != 0)
+	float f = static_cast<float>(std::strtof(literal.c_str(), NULL));
+	if (std::fmod(f, static_cast<float>(static_cast<int>(f))) == 0.0f && std::isprint(static_cast<int>(f)) != 0)
 		std::cout << "Char: '" << static_cast<char>(f) << "'" << std::endl;
-	else if (std::fmodf(f, static_cast<float>(static_cast<int>(f))) == 0.0f && std::isprint(static_cast<int>(f)) == 0)
+	else if (std::fmod(f, static_cast<float>(static_cast<int>(f))) == 0.0f && std::isprint(static_cast<int>(f)) == 0)
 		std::cout << "Char: Non Displayable" << std::endl;
 	else
 		std::cout << "Char: Impossible" << std::endl;
@@ -110,10 +110,10 @@ void	ScalarConverter::_fromFloat(std::string literal)
 
 void	ScalarConverter::_fromDouble(std::string literal)
 {
-	double d = static_cast<double>(std::stod(literal));
-	if (std::fmodf(d, static_cast<double>(static_cast<int>(d))) == 0.0 && std::isprint(static_cast<int>(d)) != 0)
+	double d = static_cast<double>(std::strtod(literal.c_str(), NULL));
+	if (std::fmod(d, static_cast<double>(static_cast<int>(d))) == 0.0 && std::isprint(static_cast<int>(d)) != 0)
 		std::cout << "Char: '" << static_cast<char>(d) << "'" << std::endl;
-	else if (std::fmodf(d, static_cast<double>(static_cast<int>(d))) == 0.0 && std::isprint(static_cast<int>(d)) == 0)
+	else if (std::fmod(d, static_cast<double>(static_cast<int>(d))) == 0.0 && std::isprint(static_cast<int>(d)) == 0)
 		std::cout << "Char: Non Displayable" << std::endl;
 	else
 		std::cout << "Char: Impossible" << std::endl;
@@ -137,7 +137,7 @@ void	ScalarConverter::convert(std::string literal)
 			is_misc = true;
 	if (is_misc)
 		ScalarConverter::_fromMisc(i);
-	else if (literal.length() > 1 && f_pos != std::string::npos && f_pos != literal.length() - 1)
+	else if (literal.length() > 1 && ((f_pos != std::string::npos && f_pos != literal.length() - 1) || (dot_pos != std::string::npos && dot_pos == literal.length() - 1)))
 		std::cout << "Error" << std::endl;
 	else if (literal.length() == 1 && std::isprint(literal[0]) != 0 && (std::isdigit(literal[0]) == 0))
 		ScalarConverter::_fromChar(literal);

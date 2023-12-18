@@ -6,7 +6,7 @@
 /*   By: gpasztor <gpasztor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 14:59:33 by gpasztor          #+#    #+#             */
-/*   Updated: 2023/11/12 15:19:55 by gpasztor         ###   ########.fr       */
+/*   Updated: 2023/12/18 16:29:47 by gpasztor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,22 +36,22 @@ Base* generate(void)
 void identify(Base* p)
 {
 	if (dynamic_cast<A*>(p))
-		std::cout << "Type identified: A" << std::endl;
+		std::cout << "Type identified(Pointer): A" << std::endl;
 	else if (dynamic_cast<B*>(p))
-		std::cout << "Type identified: B" << std::endl;
+		std::cout << "Type identified(Pointer): B" << std::endl;
 	else if (dynamic_cast<C*>(p))
-		std::cout << "Type identified: C" << std::endl;
+		std::cout << "Type identified(Pointer): C" << std::endl;
 	else
-		std::cout << "Unable to identify type" << std::endl;
+		std::cout << "Unable to identify type(Pointer)" << std::endl;
 };
 
 void identify(Base& p)
 {
-	try {(void)dynamic_cast<A&>(p); std::cout << "Type Identified: A" << std::endl; return;}
+	try {(void)dynamic_cast<A&>(p); std::cout << "Type Identified(Reference): A" << std::endl; return;}
 	catch (std::exception &e) {}
-	try {(void)dynamic_cast<B&>(p); std::cout << "Type Identified: B" << std::endl; return;}
+	try {(void)dynamic_cast<B&>(p); std::cout << "Type Identified(Reference): B" << std::endl; return;}
 	catch (std::exception &e) {}
-	try {(void)dynamic_cast<C&>(p); std::cout << "Type Identified: C" << std::endl; return;}
+	try {(void)dynamic_cast<C&>(p); std::cout << "Type Identified(Reference): C" << std::endl; return;}
 	catch (std::exception &e) {}
-	std::cout << "Unable to identify type" << std::endl;
+	std::cout << "Unable to identify type(Reference)" << std::endl;
 };
