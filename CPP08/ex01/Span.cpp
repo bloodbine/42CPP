@@ -6,7 +6,7 @@
 /*   By: gpasztor <gpasztor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 15:10:58 by gpasztor          #+#    #+#             */
-/*   Updated: 2023/11/19 13:03:29 by gpasztor         ###   ########.fr       */
+/*   Updated: 2024/01/07 15:09:57 by gpasztor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,6 @@ unsigned int Span::shortestSpan(void)
 		for (size_t j = i + 1; j < vectorCopy.size(); ++j)
 		{
 			int tempSpan = vectorCopy[j] - vectorCopy[i];
-			// std::cout << minSpan << " " << tempSpan << std::endl;
 			if (tempSpan < minSpan)
 				minSpan = tempSpan;
 		}
@@ -110,6 +109,5 @@ void	Span::fillSpan(void)
 		std::generate(tempVector.begin(), tempVector.end(), limitedRand);
 		std::set<int> tempSet = std::set<int>(tempVector.begin(), tempVector.end());
 		this->_cont = std::vector<int>(tempSet.begin(), tempSet.end());
-		// std::cout << "Final Size: " << this->_cont.size() << std::endl;
 	}
 };

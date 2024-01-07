@@ -6,11 +6,11 @@
 /*   By: gpasztor <gpasztor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 11:44:54 by gpasztor          #+#    #+#             */
-/*   Updated: 2023/11/15 12:40:02 by gpasztor         ###   ########.fr       */
+/*   Updated: 2024/01/07 15:14:34 by gpasztor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Easyfind.hpp"
+#include "easyfind.hpp"
 #include <iostream>
 #include <vector>
 #include <array>
@@ -37,21 +37,21 @@ int	main(void)
 		std::cout << *it << " ";
 	std::cout << std::endl << std::endl;
 
-	std::cout << "Found in vec: " << *easyfind(vec, 25) << std::endl;
-	std::cout << "Found in list: " << *easyfind(lst, 25) << std::endl;
-	std::cout << "Found in array: " << *easyfind(arr, 25) << std::endl;
+	std::cout << "Found in vec: " << *easyFind(vec, 25) << std::endl;
+	std::cout << "Found in list: " << *easyFind(lst, 25) << std::endl;
+	std::cout << "Found in array: " << *easyFind(arr, 25) << std::endl;
 
-	std::cout << "Value after in vec: " << *(++easyfind(vec, 25)) << std::endl;
-	std::cout << "Value after in list: " << *(++easyfind(lst, 25)) << std::endl;
-	std::cout << "Value after in array: " << *(easyfind(arr, 25) + 1) << std::endl;
+	std::cout << "Value after in vec: " << *(++easyFind(vec, 25)) << std::endl;
+	std::cout << "Value after in list: " << *(++easyFind(lst, 25)) << std::endl;
+	std::cout << "Value after in array: " << *(easyFind(arr, 25) + 1) << std::endl;
 
 	std::cout << std::endl;
 
-	try{easyfind(vec, 60);}
-	catch(std::exception &e) {std::cout << "Error in vector easyfind: " << e.what() << std::endl;}
-	try{easyfind(lst, 60);}
-	catch(std::exception &e) {std::cout << "Error in list easyfind: " << e.what() << std::endl;}
-	try{easyfind(arr, 60);}
-	catch(std::exception &e) {std::cout << "Error in array easyfind: " << e.what() << std::endl;}
+	try{easyFind(vec, 60);}
+	catch(std::exception &e) {std::cout << "Error in vector easyFind: " << e.what() << std::endl;}
+	try{easyFind(lst, 60);}
+	catch(std::exception &e) {std::cout << "Error in list easyFind: " << e.what() << std::endl;}
+	try{easyFind(arr, 60);}
+	catch(std::exception &e) {std::cout << "Error in array easyFind: " << e.what() << std::endl;}
 	return (0);
 };

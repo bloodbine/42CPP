@@ -6,14 +6,14 @@
 /*   By: gpasztor <gpasztor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 16:51:55 by gpasztor          #+#    #+#             */
-/*   Updated: 2023/11/19 12:40:49 by gpasztor         ###   ########.fr       */
+/*   Updated: 2024/01/07 15:13:10 by gpasztor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
 #include <algorithm>
 #include <iostream>
-
+#include <stack>
 
 int main(void)
 {
