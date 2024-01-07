@@ -13,7 +13,7 @@ CC		= c++
 RMF		= rm -f
 RMRF	= rm -rf
 RMDIR	= rmdir
-CFLAGS	= -Wall -Wextra -Werror -std=c++98
+CFLAGS	= -Wall -Wextra -Werror -std=c++98 -g -fsanitize=address
 
 $(OBJDIR)%.o: %.cpp
 	mkdir -p $(OBJDIR)
