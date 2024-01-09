@@ -6,7 +6,7 @@
 /*   By: gpasztor <gpasztor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 12:57:14 by gpasztor          #+#    #+#             */
-/*   Updated: 2023/11/18 15:12:54 by gpasztor         ###   ########.fr       */
+/*   Updated: 2024/01/09 15:01:41 by gpasztor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ class Span
 		~Span();
 
 		void	addNumber(const int num);
-		void	addRange(const int numbers[], int len);
+		void	addRange(const int numbers[], unsigned int len);
 		void	addRange(std::vector<int>::const_iterator begin, std::vector<int>::const_iterator end);
 		void	fillSpan(void);
 		unsigned int shortestSpan(void);

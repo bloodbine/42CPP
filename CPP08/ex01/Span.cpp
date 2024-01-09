@@ -6,7 +6,7 @@
 /*   By: gpasztor <gpasztor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 15:10:58 by gpasztor          #+#    #+#             */
-/*   Updated: 2024/01/07 15:09:57 by gpasztor         ###   ########.fr       */
+/*   Updated: 2024/01/09 15:47:44 by gpasztor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <algorithm>
 #include <cstdlib>
 #include <iostream>
+#include <numeric>
 #include <set>
 #include <vector>
 
@@ -48,13 +49,14 @@ void	Span::addNumber(const int num)
 	this->_cont.push_back(num);
 };
 
-void	Span::addRange(const int numbers[], int len)
+void	Span::addRange(const int numbers[], unsigned int len)
 {
-	if (this->_cont.size() == this->_maxLen)
+	if (this->_cont.size() == this->_maxLen || this->_cont.size() + len > this->_maxLen)
 		throw Span::SpanFullException();
-	for (int i = 0; i < len; i++)
+	const unsigned int startlen = this->_cont.size();
+	for (unsigned int i = 0; i < len; i++)
 	{
-		if (this->_cont.size() > this->_maxLen)
+		if (startlen + i >= this->_maxLen)
 			throw Span::SpanFullException();
 		this->_cont.push_back(*(numbers++));
 	}
@@ -90,15 +92,14 @@ unsigned int Span::shortestSpan(void)
 	{
 		for (size_t j = i + 1; j < vectorCopy.size(); ++j)
 		{
-			int tempSpan = vectorCopy[j] - vectorCopy[i];
-			if (tempSpan < minSpan)
-				minSpan = tempSpan;
+			int tempSpan = std::abs(vectorCopy[j] - vectorCopy[i]);
+			minSpan = std::min(minSpan, tempSpan);
 		}
 	}
 	return (minSpan);
 };
 
-int		limitedRand(void) {return (std::rand() % 100000 + 1);};
+int		limitedRand(void) {return (std::rand() % 1000000 + 1);};
 
 void	Span::fillSpan(void)
 {
