@@ -6,7 +6,7 @@
 /*   By: gpasztor <gpasztor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 15:45:20 by gpasztor          #+#    #+#             */
-/*   Updated: 2023/12/16 16:27:30 by gpasztor         ###   ########.fr       */
+/*   Updated: 2024/01/13 15:36:05 by gpasztor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,13 +50,13 @@ PmergeMe& PmergeMe::operator=(const PmergeMe& obj)
 
 PmergeMe::~PmergeMe() {};
 
-void	PmergeMe::recordVectorStart(void) {this->_vectorTime[0] = std::clock();};
-void	PmergeMe::recordVectorEnd(void) {this->_vectorTime[1] = std::clock();};
-void	PmergeMe::recordDequeStart(void) {this->_dequeTime[0] = std::clock();};
-void	PmergeMe::recordDequeEnd(void) {this->_dequeTime[1] = std::clock();};
+void	PmergeMe::recordVectorStart(void) {this->_vectorTime[0] = clock();};
+void	PmergeMe::recordVectorEnd(void) {this->_vectorTime[1] = clock();};
+void	PmergeMe::recordDequeStart(void) {this->_dequeTime[0] = clock();};
+void	PmergeMe::recordDequeEnd(void) {this->_dequeTime[1] = clock();};
 
-double	PmergeMe::getVectorDelta(void) {return (static_cast<double>(this->_vectorTime[1] - this->_vectorTime[0]) / (CLOCKS_PER_SEC / 1000000));}
-double	PmergeMe::getDequeDelta(void) {return (static_cast<double>(this->_dequeTime[1] - this->_dequeTime[0]) / (CLOCKS_PER_SEC / 1000000));}
+double	PmergeMe::getVectorDelta(void) {return ((this->_vectorTime[1] - this->_vectorTime[0]) / (CLOCKS_PER_SEC / 1e6));}
+double	PmergeMe::getDequeDelta(void) {return ((this->_dequeTime[1] - this->_dequeTime[0]) / (CLOCKS_PER_SEC / 1e6));}
 int		PmergeMe::getVectorSize(void) {return (this->_vectorCont.size());}
 int		PmergeMe::getDequeSize(void) {return (this->_dequeCont.size());}
 

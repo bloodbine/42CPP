@@ -6,7 +6,7 @@
 /*   By: gpasztor <gpasztor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 13:47:51 by gpasztor          #+#    #+#             */
-/*   Updated: 2023/12/16 16:35:41 by gpasztor         ###   ########.fr       */
+/*   Updated: 2024/01/13 15:33:00 by gpasztor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,22 +33,26 @@ int	main(int argc, char **argv)
 			vectorfj.FordJohnsonSort();
 			pmergeme.recordVectorEnd();
 
-			std::cout << "After (std::vector): ";
+			std::cout << "After: ";
 			pmergeme.displayVectorCont();
 			std::cout << std::endl;
+
+			// std::cout << "After (std::vector): ";
+			// pmergeme.displayVectorCont();
+			// std::cout << std::endl;
 
 			pmergeme.recordDequeStart();
 			DequeFJ dequefj(pmergeme.getDequeCont());
 			dequefj.FordJohnsonSort();
 			pmergeme.recordDequeEnd();
 
-			std::cout << "After (std::deque): ";
-			pmergeme.displayDequeCont();
-			std::cout << std::endl;
+			// std::cout << "After (std::deque): ";
+			// pmergeme.displayDequeCont();
+			// std::cout << std::endl;
 
 			std::cout << std::fixed;
-			std::cout << "Time to process a range of " << pmergeme.getVectorSize() << " elements with std::vector : " << std::setprecision(5) << pmergeme.getVectorDelta() << " us" << std::endl;
-			std::cout << "Time to process a range of " << pmergeme.getDequeSize() << " elements with std::deque : " << std::setprecision(5) << pmergeme.getDequeDelta() << " us" << std::endl;
+			std::cout << "Time to process a range of " << pmergeme.getVectorSize() << " elements with std::vector : " << std::setprecision(2) << pmergeme.getVectorDelta() << " us" << std::endl;
+			std::cout << "Time to process a range of " << pmergeme.getDequeSize() << " elements with std::deque : " << std::setprecision(2) << pmergeme.getDequeDelta() << " us" << std::endl;
 		}
 		catch (std::exception &e)
 		{

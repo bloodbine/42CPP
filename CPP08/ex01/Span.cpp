@@ -6,7 +6,7 @@
 /*   By: gpasztor <gpasztor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 15:10:58 by gpasztor          #+#    #+#             */
-/*   Updated: 2024/01/09 15:47:44 by gpasztor         ###   ########.fr       */
+/*   Updated: 2024/01/09 16:22:58 by gpasztor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ void	Span::fillSpan(void)
 {
 	if (this->_cont.empty())
 	{
-		std::srand(std::time(0));
+		std::srand(time(0));
 		std::vector<int> tempVector = std::vector<int>(this->_maxLen, 0);
 		std::generate(tempVector.begin(), tempVector.end(), limitedRand);
 		std::set<int> tempSet = std::set<int>(tempVector.begin(), tempVector.end());
